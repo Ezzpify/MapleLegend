@@ -25,16 +25,29 @@ namespace MapleLegend
          * If you have any questions, feel free to ask them in the thread.
          * Feel free to make improvements and change the code to your liking - I made it but public use.
          * 
-         * /
+         */
 
-        /* IMPORTS */
-        //Move form
+
+        /// <summary>
+        /// DllImport for moving form
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="Msg"></param>
+        /// <param name="wParam"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        //Embed
+
+        /// <summary>
+        /// DllImport for embedding
+        /// </summary>
+        /// <param name="hWndChild"></param>
+        /// <param name="hWndNewParent"></param>
+        /// <returns></returns>
         [DllImport("USER32.DLL")]
         static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
         [DllImport("USER32.dll")]
@@ -44,7 +57,10 @@ namespace MapleLegend
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, UInt32 dwNewLong);
 
-        /* VARS */
+        
+        /// <summary>
+        /// Global variables
+        /// </summary>
         public const int    WM_NCLBUTTONDOWN = 0xA1;
         public const int    HT_CAPTION = 0x2;
         const int           GWL_STYLE = (-16);
@@ -58,8 +74,13 @@ namespace MapleLegend
         public Process      pMaple;
         public Size         sMapleSize = new Size(800, 600);
 
+
+        /// <summary>
+        /// Main initializer
+        /// </summary>
         public Form1()
         {
+            /*Initialize and load settings*/
             InitializeComponent();
             settingsLoad();
 
@@ -87,25 +108,42 @@ namespace MapleLegend
                     O = Properties.Resources._5;
                     break;
             }
+
+            /*Set random gif*/
             pic_Slime.Image = (Image)O;
         }
 
+
+        /// <summary>
+        /// Load settings
+        /// </summary>
         void settingsLoad()
         {
-            /*processName*/
+            /*Load process name from settings*/
             if (Properties.Settings.Default.ProcessName.Length > 0)
+            {
                 Options_txt_ProcessName.Text = Properties.Settings.Default.ProcessName;
+            }
         }
 
+
+        /// <summary>
+        /// Save settings
+        /// </summary>
         void settingsSave()
         {
-            /*processName*/
+            /*Process name*/
             Properties.Settings.Default.ProcessName = Options_txt_ProcessName.Text;
 
             /*save*/
             Properties.Settings.Default.Save();
         }
 
+
+        /// <summary>
+        /// Get maplestory proc
+        /// </summary>
+        /// <returns></returns>
         Process getMapleProc()
         {
             Process[] proc = Process.GetProcessesByName(Options_txt_ProcessName.Text);
@@ -117,29 +155,45 @@ namespace MapleLegend
             return null;
         }
 
+
+        /// <summary>
+        /// Check if we have admin privileges
+        /// </summary>
+        /// <returns></returns>
         public static bool IsAdmin()
         {
             return (new WindowsPrincipal(WindowsIdentity.GetCurrent()))
                     .IsInRole(WindowsBuiltInRole.Administrator);
         }
 
+
+        /// <summary>
+        /// Embed the window
+        /// </summary>
         void SetEmbed()
         {
             if (pMaple != null)
             {
+                /*Preparing*/
                 SetParent(pMaple.MainWindowHandle, this.panel_MapleStory.Handle);
                 MoveWindow(pMaple.MainWindowHandle, 0, 0, this.Width, this.Height, true);
 
+                /*Set window*/
                 uint style = GetWindowLong(pMaple.MainWindowHandle, GWL_STYLE);
                 style = (style | WS_POPUP) & (~WS_CHILD);
                 SetWindowLong(pMaple.MainWindowHandle, GWL_STYLE, style);
             }
         }
 
+
+        /// <summary>
+        /// Detatch the window from our application
+        /// </summary>
         void DetatchEmbed()
         {
             if (pMaple != null)
             {
+                /*Unhook window*/
                 SetParent(pMaple.MainWindowHandle, IntPtr.Zero);
                 pMaple = null;
                 btn_Embed.Visible = true;
@@ -156,6 +210,11 @@ namespace MapleLegend
             }
         }
 
+
+        /// <summary>
+        /// Hide/Show the menu
+        /// </summary>
+        /// <param name="b"></param>
         void HideMenu(bool b)
         {
             if (b)
@@ -174,6 +233,10 @@ namespace MapleLegend
             }
         }
 
+
+        /// <summary>
+        /// Set size of our program
+        /// </summary>
         void setSize()
         {
             try
@@ -196,6 +259,12 @@ namespace MapleLegend
             SetEmbed();
         }
 
+
+        /// <summary>
+        /// Save our settings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Options_btn_Save_Click(object sender, EventArgs e)
         {
             settingsSave();
@@ -203,11 +272,23 @@ namespace MapleLegend
             panel_Options.Visible = false;
         }
 
+
+        /// <summary>
+        /// Detatch the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Options_btn_Detatch_Click(object sender, EventArgs e)
         {
             DetatchEmbed();
         }
 
+
+        /// <summary>
+        /// Exit our program, detatch game if user wants, else it will kill the game too
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Close_Click(object sender, EventArgs e)
         {
             if (bEmbedded)
@@ -219,21 +300,30 @@ namespace MapleLegend
                 }
                 else
                 {
-                    using (Process pM = getMapleProc())
-                    {
-                        pM.Kill();
-                    }
+                    pMaple.Kill();
                 }
             }
 
             Application.Exit();
         }
 
+
+        /// <summary>
+        /// Minimize the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
+
+        /// <summary>
+        /// Event for embedding the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Embed_Click(object sender, EventArgs e)
         {
             if (IsAdmin())
@@ -284,18 +374,36 @@ namespace MapleLegend
             }
         }
 
+
+        /// <summary>
+        /// Open opacity panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Opacity_Click(object sender, EventArgs e)
         {
             panel_Opacity.Visible = !panel_Opacity.Visible;
             panel_Options.Visible = false;
         }
 
+
+        /// <summary>
+        /// Open options panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Options_Click(object sender, EventArgs e)
         {
             panel_Options.Visible = !panel_Options.Visible;
             panel_Opacity.Visible = false;
         }
 
+
+        /// <summary>
+        /// Move the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel_Menu_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -305,6 +413,12 @@ namespace MapleLegend
             }
         }
 
+
+        /// <summary>
+        /// Re-embed the game since it will glitch otherwise - due to how the game is made
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel_Menu_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -313,11 +427,23 @@ namespace MapleLegend
             }
         }
 
+
+        /// <summary>
+        /// Set the opacity via the slider
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_Opacity_Scroll(object sender, EventArgs e)
         {
             this.Opacity = slider_Opacity.Value * 0.01;
         }
 
+
+        /// <summary>
+        /// Toggle the menu event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ToggleMenu_Click(object sender, EventArgs e)
         {
             if(bMenuOn)
@@ -332,16 +458,27 @@ namespace MapleLegend
             }
         }
 
+
+        /// <summary>
+        /// Hide one divider to make it look better
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Options_btn_Save_MouseEnter(object sender, EventArgs e)
         {
-            pic_Divider2.Visible = false;
+            Options_Menu_Divider2.Visible = false;
         }
-
         private void Options_btn_Save_MouseLeave(object sender, EventArgs e)
         {
-            pic_Divider2.Visible = true;
+            Options_Menu_Divider2.Visible = true;
         }
 
+
+        /// <summary>
+        /// Help event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Help_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
@@ -352,6 +489,11 @@ namespace MapleLegend
             + "Detatch the game by going to Options > Detatch Game", "Help window");
         }
 
+
+        /// <summary>
+        /// Just a fun video if someone clicks the slime at the bottom right
+        /// Can only occur when a game is not embedded
+        /// </summary>
         WebBrowser web;
         private void pic_Slime_Click(object sender, EventArgs e)
         {
@@ -364,6 +506,12 @@ namespace MapleLegend
             web_Close.Start();
         }
 
+
+        /// <summary>
+        /// Close the browser
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void web_Close_Tick(object sender, EventArgs e)
         {
             web_Close.Stop();

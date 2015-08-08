@@ -33,14 +33,14 @@
             this.panel_MapleStory = new System.Windows.Forms.Panel();
             this.pic_Slime = new System.Windows.Forms.PictureBox();
             this.panel_Options = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Options_Menu_Divider1 = new System.Windows.Forms.PictureBox();
             this.Options_btn_Detatch = new System.Windows.Forms.Button();
-            this.pic_Divider2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Options_Menu_Divider2 = new System.Windows.Forms.PictureBox();
+            this.Options_resolution_label = new System.Windows.Forms.Label();
             this.Options_cmb_Res = new System.Windows.Forms.ComboBox();
-            this.pic_Divider1 = new System.Windows.Forms.PictureBox();
+            this.Options_Menu_Divider3 = new System.Windows.Forms.PictureBox();
             this.Options_btn_Save = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Options_Process_label = new System.Windows.Forms.Label();
             this.Options_txt_ProcessName = new System.Windows.Forms.TextBox();
             this.panel_Opacity = new System.Windows.Forms.Panel();
             this.slider_Opacity = new System.Windows.Forms.TrackBar();
@@ -56,9 +56,9 @@
             this.panel_MapleStory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Slime)).BeginInit();
             this.panel_Options.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Divider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Divider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Options_Menu_Divider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Options_Menu_Divider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Options_Menu_Divider3)).BeginInit();
             this.panel_Opacity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slider_Opacity)).BeginInit();
             this.panel_Menu.SuspendLayout();
@@ -89,14 +89,14 @@
             // panel_Options
             // 
             this.panel_Options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel_Options.Controls.Add(this.pictureBox1);
+            this.panel_Options.Controls.Add(this.Options_Menu_Divider1);
             this.panel_Options.Controls.Add(this.Options_btn_Detatch);
-            this.panel_Options.Controls.Add(this.pic_Divider2);
-            this.panel_Options.Controls.Add(this.label2);
+            this.panel_Options.Controls.Add(this.Options_Menu_Divider2);
+            this.panel_Options.Controls.Add(this.Options_resolution_label);
             this.panel_Options.Controls.Add(this.Options_cmb_Res);
-            this.panel_Options.Controls.Add(this.pic_Divider1);
+            this.panel_Options.Controls.Add(this.Options_Menu_Divider3);
             this.panel_Options.Controls.Add(this.Options_btn_Save);
-            this.panel_Options.Controls.Add(this.label1);
+            this.panel_Options.Controls.Add(this.Options_Process_label);
             this.panel_Options.Controls.Add(this.Options_txt_ProcessName);
             this.panel_Options.Location = new System.Drawing.Point(6, 39);
             this.panel_Options.Name = "panel_Options";
@@ -104,14 +104,14 @@
             this.panel_Options.TabIndex = 4;
             this.panel_Options.Visible = false;
             // 
-            // pictureBox1
+            // Options_Menu_Divider1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.pictureBox1.Location = new System.Drawing.Point(16, 220);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(166, 1);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.Options_Menu_Divider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.Options_Menu_Divider1.Location = new System.Drawing.Point(16, 220);
+            this.Options_Menu_Divider1.Name = "Options_Menu_Divider1";
+            this.Options_Menu_Divider1.Size = new System.Drawing.Size(166, 1);
+            this.Options_Menu_Divider1.TabIndex = 9;
+            this.Options_Menu_Divider1.TabStop = false;
             // 
             // Options_btn_Detatch
             // 
@@ -130,25 +130,25 @@
             this.Options_btn_Detatch.Visible = false;
             this.Options_btn_Detatch.Click += new System.EventHandler(this.Options_btn_Detatch_Click);
             // 
-            // pic_Divider2
+            // Options_Menu_Divider2
             // 
-            this.pic_Divider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.pic_Divider2.Location = new System.Drawing.Point(16, 153);
-            this.pic_Divider2.Name = "pic_Divider2";
-            this.pic_Divider2.Size = new System.Drawing.Size(166, 1);
-            this.pic_Divider2.TabIndex = 7;
-            this.pic_Divider2.TabStop = false;
+            this.Options_Menu_Divider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.Options_Menu_Divider2.Location = new System.Drawing.Point(16, 153);
+            this.Options_Menu_Divider2.Name = "Options_Menu_Divider2";
+            this.Options_Menu_Divider2.Size = new System.Drawing.Size(166, 1);
+            this.Options_Menu_Divider2.TabIndex = 7;
+            this.Options_Menu_Divider2.TabStop = false;
             // 
-            // label2
+            // Options_resolution_label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(13, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Custom resolution";
+            this.Options_resolution_label.AutoSize = true;
+            this.Options_resolution_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Options_resolution_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Options_resolution_label.Location = new System.Drawing.Point(13, 91);
+            this.Options_resolution_label.Name = "Options_resolution_label";
+            this.Options_resolution_label.Size = new System.Drawing.Size(106, 15);
+            this.Options_resolution_label.TabIndex = 5;
+            this.Options_resolution_label.Text = "Custom resolution";
             // 
             // Options_cmb_Res
             // 
@@ -166,14 +166,14 @@
             this.Options_cmb_Res.TabIndex = 4;
             this.Options_cmb_Res.Text = "800x600";
             // 
-            // pic_Divider1
+            // Options_Menu_Divider3
             // 
-            this.pic_Divider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.pic_Divider1.Location = new System.Drawing.Point(16, 77);
-            this.pic_Divider1.Name = "pic_Divider1";
-            this.pic_Divider1.Size = new System.Drawing.Size(166, 1);
-            this.pic_Divider1.TabIndex = 3;
-            this.pic_Divider1.TabStop = false;
+            this.Options_Menu_Divider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.Options_Menu_Divider3.Location = new System.Drawing.Point(16, 77);
+            this.Options_Menu_Divider3.Name = "Options_Menu_Divider3";
+            this.Options_Menu_Divider3.Size = new System.Drawing.Size(166, 1);
+            this.Options_Menu_Divider3.TabIndex = 3;
+            this.Options_Menu_Divider3.TabStop = false;
             // 
             // Options_btn_Save
             // 
@@ -193,16 +193,16 @@
             this.Options_btn_Save.MouseEnter += new System.EventHandler(this.Options_btn_Save_MouseEnter);
             this.Options_btn_Save.MouseLeave += new System.EventHandler(this.Options_btn_Save_MouseLeave);
             // 
-            // label1
+            // Options_Process_label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(13, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Process name (without .exe)";
+            this.Options_Process_label.AutoSize = true;
+            this.Options_Process_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Options_Process_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Options_Process_label.Location = new System.Drawing.Point(13, 21);
+            this.Options_Process_label.Name = "Options_Process_label";
+            this.Options_Process_label.Size = new System.Drawing.Size(162, 15);
+            this.Options_Process_label.TabIndex = 1;
+            this.Options_Process_label.Text = "Process name (without .exe)";
             // 
             // Options_txt_ProcessName
             // 
@@ -396,9 +396,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_Slime)).EndInit();
             this.panel_Options.ResumeLayout(false);
             this.panel_Options.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Divider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Divider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Options_Menu_Divider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Options_Menu_Divider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Options_Menu_Divider3)).EndInit();
             this.panel_Opacity.ResumeLayout(false);
             this.panel_Opacity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slider_Opacity)).EndInit();
@@ -423,15 +423,15 @@
         private System.Windows.Forms.PictureBox pic_Slime;
         private System.Windows.Forms.Button btn_Options;
         private System.Windows.Forms.Panel panel_Options;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Options_Process_label;
         private System.Windows.Forms.TextBox Options_txt_ProcessName;
         private System.Windows.Forms.Button Options_btn_Save;
-        private System.Windows.Forms.PictureBox pic_Divider1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox Options_Menu_Divider3;
+        private System.Windows.Forms.Label Options_resolution_label;
         private System.Windows.Forms.ComboBox Options_cmb_Res;
-        private System.Windows.Forms.PictureBox pic_Divider2;
+        private System.Windows.Forms.PictureBox Options_Menu_Divider2;
         private System.Windows.Forms.Button Options_btn_Detatch;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Options_Menu_Divider1;
         private System.Windows.Forms.Timer web_Close;
     }
 }
